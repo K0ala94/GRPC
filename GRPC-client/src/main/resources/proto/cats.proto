@@ -1,0 +1,26 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package catsGrpc;
+
+service Cats {
+    rpc listCats (ListCatsRq) returns (ListCatsRp) {}
+}
+
+message ListCatsRq {
+
+}
+
+message ListCatsRp {
+    repeated Cat cats = 1;
+}
+
+message Cat {
+    string name = 1;
+    Fur fur = 2;
+    int32 age = 3;
+}
+
+message Fur {
+    string color = 1;
+    string pattern = 2;
+}
